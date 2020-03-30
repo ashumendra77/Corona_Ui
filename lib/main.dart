@@ -36,30 +36,20 @@ class _SlideScreenState extends State<SlideScreen> {
         child: ListView(
           children: <Widget>[
             Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                // SizedBox(height:10),
                 Stack(children: <Widget>[
                   Container(
-                      height: 370,
+                      height: 320,
                       width: double.infinity,
-                      // width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           color: Colors.purple,
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(30),
                               bottomLeft: Radius.circular(30)),
                           image: DecorationImage(
-                              image: AssetImage("images/pic1.jpg"),
+                              image: AssetImage("images/images.jpeg"),
                               fit: BoxFit.fill))),
-                  Text(
-                    "COVID-19",
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white,
-                    ),
-                  )
                 ]),
                 SizedBox(height: 10),
                 Text(
@@ -68,7 +58,7 @@ class _SlideScreenState extends State<SlideScreen> {
                 ),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: TextField(
                     controller: MyController,
                     cursorColor: Colors.pink,
@@ -77,27 +67,34 @@ class _SlideScreenState extends State<SlideScreen> {
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
-
-                      suffixIcon: Icon(Icons.phone_iphone,color: Colors.black,),
+                      suffixIcon: Icon(
+                        Icons.phone_iphone,
+                        color: Colors.black,
+                      ),
                       labelText: "Phone number",
-                      // icon: Icon(),
                       filled: true,
                       fillColor: Color(0xfffce5e8),
                     ),
                   ),
                 ),
                 SizedBox(height: 10),
-                RaisedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SecondScreen()),
-                    );
-                  },
-                  color: Color(0xfff24b5b),
-                  textColor: Colors.white,
-                  child: Text(
-                    "Verification Code",
+                Container(
+                  height: 50,
+                  width: double.infinity,
+                  margin: EdgeInsets.only(right: 20, left: 20),
+                  child: RaisedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SecondScreen()),
+                      );
+                    },
+                    color: Color(0xfff24b5b),
+                    textColor: Colors.white,
+                    child: Text(
+                      "Verification Code",
+                      style: TextStyle(fontSize: 25),
+                    ),
                   ),
                 )
               ],

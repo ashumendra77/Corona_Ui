@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: "0.1.2"
   intro_slider: ^2.2.9
+  flutter_staggered_grid_view: ^0.3.0
 
 dev_dependencies:
   flutter_test:
@@ -44,14 +45,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/pic1.jpg
-   - images/pic2.jpg
-   - images/pic3.jpg
-   - images/pic4.jpeg
-   - images/pic5.jpeg
-   - images/pic6.jpeg
-   - images/pic7.jpeg
-   - images/pic8.jpeg
+   - images/images.jpeg
+   - images/download.jpeg
+   - images/download (1).jpeg
+   - images/download (3).jpeg
+  
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

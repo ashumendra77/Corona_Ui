@@ -7,6 +7,35 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
+  int selectedindex = 0;
+
+  List<String> li = ["Safety", "Sympton", "News"];
+
+  Widget getIndex(int index) {
+    return GestureDetector(
+      onTap: () {
+        selectedindex = index;
+        setState(() {});
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 12),
+        padding: EdgeInsets.symmetric(
+          horizontal: 28,
+        ),
+        decoration: BoxDecoration(
+          color: Color(selectedindex == index ? 0xff808080 : 0xff0c151a),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+        ),
+        child: Center(
+          child: Text(
+            li[index],
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget getsafty(Picture picture) {
     return Column(children: <Widget>[
       Container(
@@ -68,18 +97,23 @@ class _SecondScreenState extends State<SecondScreen> {
           children: <Widget>[
             SizedBox(height: 10),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Icon(
-                  Icons.home,
-                  size: 30,
+                Padding(
+                  padding: EdgeInsets.only(left: 9.0),
+                  child: Icon(
+                    Icons.home,
+                    size: 30,
+                  ),
                 ),
-                Icon(Icons.portrait, size: 30),
+                Padding(
+                  padding: EdgeInsets.only(right: 8.0),
+                  child: Icon(Icons.portrait, size: 30),
+                ),
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 15,
             ),
             Container(
                 decoration: BoxDecoration(boxShadow: <BoxShadow>[
@@ -129,41 +163,24 @@ class _SecondScreenState extends State<SecondScreen> {
                     ),
                   ],
                 )),
-            SizedBox(height: 30),
+            SizedBox(height: 35),
             Container(
-              height: 50,
-              margin: EdgeInsets.only(right: 10, left: 10),
-              decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(20)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  FlatButton(
-                    highlightColor: Colors.deepPurple,
-                    onPressed: () => debugPrint("p"),
-                    child:
-                        Text("Safety", style: TextStyle(color: Colors.white)),
+              margin: EdgeInsets.only(left:10),
+                  height: 40,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: li.toList().asMap().entries.map((MapEntry map) {
+                      //print(map);
+                      return getIndex(map.key);
+                    }).toList(),
                   ),
-                  FlatButton(
-                      onPressed: () => debugPrint("p"),
-                      child: Text(
-                        "Sympton",
-                        style: TextStyle(color: Colors.white),
-                      )),
-                  FlatButton(
-                      onPressed: () => debugPrint("statement"),
-                      child: Text(
-                        "News",
-                        style: TextStyle(color: Colors.white),
-                      ))
-                ],
-              ),
-            ),
+                ),
+            
+            
             SizedBox(height: 20),
             Container(
                 height: 300,
                 child: ListView(
-                  // scrollDirection: Axis.vertical,
                   children: picture.asMap().entries.map((MapEntry map) {
                     return getsafty(map.value);
                   }).toList(),

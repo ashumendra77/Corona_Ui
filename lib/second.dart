@@ -23,7 +23,7 @@ class _SecondScreenState extends State<SecondScreen> {
           horizontal: 28,
         ),
         decoration: BoxDecoration(
-          color: Color(selectedindex == index ? 0xff808080 : 0xff0c151a),
+          color: Color(selectedindex == index ? 0xff0c151a : 0xff808080),
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Center(
